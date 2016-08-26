@@ -15,8 +15,8 @@ $route = get_mvc_route();
 $mvc_ctrl = $route["c"];
 //controller action
 $mvc_act = $route["a"];
-//controller name format : XxxController
-$mvc_ctrl_name = $mvc_ctrl."_ctrl";
+//controller name format : XYZCtrl
+$mvc_ctrl_name = $mvc_ctrl."Ctrl";
 //load controller file
 $mvc_ctrl_file = sprintf("%s/app/controller/%s.php",APP_PATH,$mvc_ctrl_name);
 if(file_exists($mvc_ctrl_file)){
