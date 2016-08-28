@@ -14,6 +14,18 @@ function get_mvc_route(){
     $ctrl = get_url_string("ctrl");
     //get action method
     $act = getUrlString("act");
+    //if nginx has rewrite the URL
+    $urlinfo = getUrlString("_urlinfo");
+    if(!empty($urlinfo)){
+        $s = trim(str_replace("/", " ", $urlinfo));
+        $urls = explode(" ", $urlinfo);
+        if (isset($urls[0])) {
+            $ctrl = $urls[0];
+        }
+        if (isset($urls[1])) {
+            $act = $urls[1];
+        }
+    }
     //default action :index
     if(empty($act)){
         $act = "index";
