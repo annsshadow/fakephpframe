@@ -9,6 +9,31 @@ function get_url_string($name)
     }
 }
 
+/*
+//nginx setting
+server {
+    listen       80;
+    server_name mvc.myf.cn;
+    root /Users/minyifei/myf/mvc;
+    index index.php index.html index.htm;
+
+    #to handle false stastic URL request
+    location / {
+        if (!-e $request_filename) {
+            rewrite  ^(.*)$  /index.php?_urlinfo=$1  last;
+            break;
+        }
+    }
+    location ~ \.php$ {
+        include /usr/local/etc/nginx/fastcgi.conf;
+        fastcgi_intercept_errors on;
+        fastcgi_pass   127.0.0.1:9000;
+    }
+
+}
+*/
+
+
 function get_mvc_route(){
     //get controller
     $ctrl = get_url_string("ctrl");
