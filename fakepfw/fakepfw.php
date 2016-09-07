@@ -9,6 +9,15 @@ define('APP_SYS_PATH', dirname(__FILE__));
 define('APP_SITE_PATH', dirname(dirname(__FILE__)));
 //global functions
 require_once(APP_SYS_PATH."/functions.php");
+//define config file
+$_config = array();
+$configFile = dirname(APP_SYS_PATH)."/config.php";
+if(file_exists($configFile)){
+    $_config = require_once ($configFile);
+}
+//load namespaces file
+$namespaces = C("namespaces");
+spl_autoload_register("loader");
 //get mvc router
 $route = get_mvc_route();
 //controller
