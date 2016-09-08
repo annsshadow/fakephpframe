@@ -16,14 +16,14 @@ if(file_exists($configFile)){
     $_config = require_once ($configFile);
 }
 //load namespaces file
-$namespaces = C("namespaces");
-spl_autoload_register("loader");
+//$namespaces = C("namespaces");
+//spl_autoload_register("loader");
 //get mvc router
 $route = get_mvc_route();
 //controller
-$mvc_ctrl = $route["c"];
+$mvc_ctrl = $route["ctrl"];
 //controller action
-$mvc_act = $route["a"];
+$mvc_act = $route["act"];
 //controller name format : XYZCtrl
 $mvc_ctrl_name = $mvc_ctrl."Ctrl";
 //load controller file

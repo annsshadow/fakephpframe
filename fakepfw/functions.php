@@ -38,9 +38,9 @@ function get_mvc_route(){
     //get controller
     $ctrl = get_url_string("ctrl");
     //get action method
-    $act = getUrlString("act");
+    $act = get_url_string("act");
     //if nginx has rewrite the URL
-    $urlinfo = getUrlString("_urlinfo");
+    $urlinfo = get_url_string("_urlinfo");
     if(!empty($urlinfo)){
         $s = trim(str_replace("/", " ", $urlinfo));
         $urls = explode(" ", $urlinfo);
